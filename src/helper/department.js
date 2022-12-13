@@ -7,10 +7,11 @@ const analytics2 = async (req, res) => {
         throw new Error();
     }
     try {
-        const batch = parseInt(req.body.batch);
-        const branch = req.body.department;
-        const currentSem = parseInt(req.body.currentSem);
-        const date = req.body.date;
+        const batch = parseInt(req.query.batch);
+        const branch = req.query.department;
+        const currentSem = parseInt(req.query.currentSem);
+        const date = req.query.date;
+        console.log(req.query)
 
         const aggregate = await Attendance.aggregate([
             {
@@ -80,9 +81,9 @@ const analytics3 = async (req, res) => {
       }
     
       try {
-        const batch = parseInt(req.body.batch);
-        const branch = req.body.branch;
-        const currentSem = parseInt(req.body.currentSem);
+        const batch = parseInt(req.query.batch);
+        const branch = req.query.branch;
+        const currentSem = parseInt(req.query.currentSem);
     
         const aggregate = await Students.aggregate([
           {
@@ -178,8 +179,8 @@ const analytics4 = async function(req,res){
       }
     
       try {
-        const batch = parseInt(req.body.batch);
-        const department = req.body.department;
+        const batch = parseInt(req.query.batch);
+        const department = req.query.department;
     
         const aggregate = await Batches.aggregate([
           {

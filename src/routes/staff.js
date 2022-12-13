@@ -13,7 +13,7 @@ router.post('/admin', async function (req, res) {
     const isAdmin = await Users.findOne({ role: 'admin' });
     if (isAdmin !== null) {
 
-        throw new Error();
+        throw new Error("Admin exists");
     }
 
     try {
